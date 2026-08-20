@@ -1,0 +1,166 @@
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Conecta con seguridad | Prevención de accidentes eléctricos</title>
+	<style>
+		:root { --ink: #16242b; --muted: #53636b; --blue: #075985; --teal: #0f766e; --yellow: #facc15; --paper: #f7faf9; --line: #d7e2e0; }
+		* { box-sizing: border-box; }
+		body { margin: 0; color: var(--ink); font-family: Arial, sans-serif; line-height: 1.6; background: var(--paper); }
+		nav { display: flex; align-items: center; justify-content: space-between; gap: 20px; width: min(1120px, 92%); margin: auto; padding: 18px 0; }
+		nav strong { color: var(--blue); font-size: 1.15rem; }
+		nav a { color: var(--ink); font-weight: bold; text-decoration: none; }
+		nav a:hover { color: var(--teal); }
+	header { color: white; background: linear-gradient(120deg, #073b4c, #075985 60%, #0f766e); }
+		.hero { display: grid; grid-template-columns: 1.1fr .9fr; align-items: center; gap: 48px; width: min(1120px, 92%); margin: auto; padding: 72px 0; }
+		.eyebrow { color: var(--yellow); font-size: .8rem; font-weight: bold; letter-spacing: 1px; text-transform: uppercase; }
+		h1 { max-width: 680px; margin: 10px 0 16px; font-size: clamp(2.4rem, 6vw, 4.4rem); line-height: 1.05; }
+		.hero p { max-width: 590px; margin-bottom: 28px; font-size: 1.15rem; }
+		.hero-art { position: relative; min-height: 340px; overflow: hidden; color: white; background: #dff4ef; border: 8px solid rgba(255,255,255,.2); border-radius: 8px; box-shadow: 20px 20px 0 rgba(250,204,21,.85); }
+		.hero-art img { display: block; width: 100%; height: 340px; object-fit: cover; }
+		.hero-art figcaption { position: absolute; right: 18px; bottom: 18px; left: 18px; padding: 12px 14px; background: rgba(7,59,76,.88); border-left: 4px solid var(--yellow); font-weight: bold; }
+		.quick-facts { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px; width: min(1120px, 92%); margin: 0 auto; background: rgba(255,255,255,.3); }
+		.quick-fact { padding: 20px; color: white; background: rgba(7,59,76,.35); }
+		.quick-fact strong { display: block; margin-bottom: 3px; color: var(--yellow); font-size: 1.35rem; }
+		.quick-fact span { font-size: .93rem; }
+		.button { display: inline-block; padding: 12px 20px; color: #17212b; background: var(--yellow); border: 0; border-radius: 4px; font-weight: bold; text-decoration: none; cursor: pointer; }
+		main { width: min(1120px, 92%); margin: 0 auto; }
+		.section { padding: 68px 0 20px; }
+		.section-heading { max-width: 680px; margin-bottom: 28px; }
+		h2 { margin: 0 0 8px; color: var(--blue); font-size: 2rem; }
+		.section-heading p, .card p { color: var(--muted); }
+		.cards { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; }
+		.card { padding: 26px; background: white; border: 1px solid var(--line); border-top: 5px solid var(--teal); border-radius: 6px; }
+		.card-image { width: calc(100% + 52px); height: 150px; margin: -26px -26px 20px; object-fit: cover; border-radius: 2px 2px 0 0; }
+		.card h3 { margin-top: 0; color: var(--teal); }
+		.card ul { padding-left: 20px; margin-bottom: 0; }
+		.risks { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; }
+		.risk { display: grid; grid-template-columns: 120px 1fr; gap: 18px; align-items: center; padding: 18px; background: white; border: 1px solid var(--line); border-radius: 6px; }
+		.risk img { width: 120px; height: 110px; object-fit: cover; border-radius: 4px; }
+		.risk h3 { margin: 0 0 4px; color: var(--blue); }
+		.risk p { margin: 0; color: var(--muted); font-size: .95rem; }
+		.tip { margin-top: 24px; padding: 20px; color: #064e3b; background: #dff4ef; border-left: 5px solid var(--teal); }
+		.alert { display: grid; grid-template-columns: auto 1fr; gap: 18px; align-items: start; padding: 24px; color: #563600; background: #fff7cc; border-left: 6px solid #eab308; }
+		.alert strong { font-size: 1.8rem; line-height: 1; }
+		.checklist { display: grid; grid-template-columns: 1fr 1fr; gap: 10px 28px; padding: 24px; background: white; border: 1px solid var(--line); border-radius: 6px; }
+		.checklist label { display: flex; gap: 10px; align-items: flex-start; padding: 8px 0; cursor: pointer; }
+		.checklist input { width: 18px; height: 18px; accent-color: var(--teal); }
+		.checklist-group { grid-column: 1 / -1; padding-top: 10px; color: var(--blue); border-bottom: 1px solid var(--line); font-weight: bold; }
+		.progress { height: 10px; margin-top: 20px; overflow: hidden; background: #dce7e5; border-radius: 10px; }
+		#progress-bar { width: 0; height: 100%; background: var(--teal); transition: width .25s ease; }
+		.review-form { display: grid; gap: 16px; margin-top: 24px; padding: 24px; background: #eaf5f3; border: 1px solid var(--line); border-radius: 6px; }
+		.form-fields { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+		.review-form label { display: grid; gap: 6px; color: var(--ink); font-weight: bold; }
+		.review-form input, .review-form select, .review-form textarea { width: 100%; padding: 11px 12px; color: var(--ink); background: white; border: 1px solid #b9cdca; border-radius: 4px; font: inherit; }
+		.review-form textarea { min-height: 100px; resize: vertical; }
+		.review-form .button { width: fit-content; }
+		.form-note { margin: 0; color: var(--muted); font-size: .9rem; }
+		footer { margin-top: 70px; padding: 30px 4%; color: white; text-align: center; background: #16242b; }
+		footer p { margin: 4px 0; }
+		@media (max-width: 760px) { nav { align-items: flex-start; flex-direction: column; } .hero { grid-template-columns: 1fr; padding: 54px 0; gap: 30px; } .hero-art, .hero-art img { min-height: 240px; height: 240px; } .quick-facts { grid-template-columns: 1fr; } .cards, .checklist, .risks { grid-template-columns: 1fr; } .section { padding-top: 48px; } }
+	</style>
+</head>
+<body>
+	<header>
+		<nav aria-label="Navegación principal">
+			<strong>CONEXIÓN SEGURA</strong>
+			<a href="#prevencion">Prevención</a>
+			<a href="#riesgos">Riesgos</a>
+			<a href="#emergencia">Emergencias</a>
+			<a href="#lista">Lista de revisión</a>
+		</nav>
+		<div class="hero">
+			<div>
+				<div class="eyebrow">Guía para todos</div>
+				<h1>La electricidad ayuda. La prevención protege.</h1>
+				<p>Aprende a reducir accidentes eléctricos en casa, en tu comunidad y en todo el distrito con hábitos sencillos y decisiones responsables.</p>
+				<a class="button" href="#prevencion">Ver recomendaciones</a>
+			</div>
+			<figure class="hero-art"><img src="https://images.unsplash.com/photo-1621905252507-b35492cc74b4?auto=format&fit=crop&w=900&q=85" alt="Electricista revisando un tablero eléctrico con equipo de protección"><figcaption>La seguridad comienza con una revisión.</figcaption></figure>
+		</div>
+		<div class="quick-facts" aria-label="Datos principales de la guía">
+			<div class="quick-fact"><strong>3 espacios</strong><span>Casa, comunidad y distrito</span></div>
+			<div class="quick-fact"><strong>12 acciones</strong><span>Para revisar y mejorar la seguridad</span></div>
+			<div class="quick-fact"><strong>1 objetivo</strong><span>Prevenir antes de lamentar</span></div>
+		</div>
+	</header>
+	<main>
+		<section class="section" id="prevencion">
+			<div class="section-heading"><h2>La seguridad empieza cerca</h2><p>Cada espacio necesita cuidados distintos. Comparte estas prácticas con tu familia, vecinos y autoridades locales.</p></div>
+			<div class="cards">
+				<article class="card"><img class="card-image" src="https://images.unsplash.com/photo-1558008258-3256797b43f3?auto=format&fit=crop&w=700&q=80" alt="Enchufe y cable eléctrico en una pared"><h3>En casa</h3><p>Protege a las personas y evita sobrecargas.</p><ul><li>No uses cables pelados o enchufes dañados.</li><li>Mantén aparatos y extensiones lejos del agua.</li><li>Desconecta tirando del enchufe, nunca del cable.</li><li>No sobrecargues tomacorrientes ni extensiones.</li></ul></article>
+				<article class="card"><img class="card-image" src="https://images.unsplash.com/photo-1581094794329-c8112a89af12?auto=format&fit=crop&w=700&q=80" alt="Persona usando equipo de protección en una instalación"><h3>En la comunidad</h3><p>Identifica riesgos y avisa a tiempo.</p><ul><li>No toques postes, cajas o cables caídos.</li><li>Delimita la zona de peligro y aléjate.</li><li>Informa a la empresa eléctrica o autoridad local.</li><li>Enseña a niñas y niños a no jugar cerca de instalaciones.</li></ul></article>
+				<article class="card"><img class="card-image" src="https://images.unsplash.com/photo-1509391366360-2e959784a276?auto=format&fit=crop&w=700&q=80" alt="Instalación eléctrica exterior con paneles solares"><h3>En el distrito</h3><p>La prevención también requiere organización.</p><ul><li>Reporta luminarias, tableros o conexiones expuestas.</li><li>Respeta las distancias de seguridad en obras.</li><li>Participa en campañas y simulacros comunitarios.</li><li>Solicita trabajos solo a personal calificado.</li></ul></article>
+			</div>
+		</section>
+		<section class="section" id="riesgos">
+			<div class="section-heading"><h2>Riesgos frecuentes que debemos reconocer</h2><p>Observar a tiempo una situación peligrosa permite corregirla antes de que ocurra un accidente.</p></div>
+			<div class="risks">
+				<article class="risk"><img src="https://images.unsplash.com/photo-1558494949-ef010cbdcc31?auto=format&fit=crop&w=400&q=80" alt="Cables organizados en una instalación"> <div><h3>Sobrecalentamiento</h3><p>Desconecta equipos que desprendan olor a quemado, hagan ruido extraño o calienten demasiado.</p></div></article>
+				<article class="risk"><img src="https://images.unsplash.com/photo-1519692933481-e162a57d6721?auto=format&fit=crop&w=400&q=80" alt="Gotas de agua sobre una superficie"> <div><h3>Agua y electricidad</h3><p>Nunca manipules enchufes con las manos mojadas ni uses aparatos cerca de lavaderos o piscinas.</p></div></article>
+				<article class="risk"><img src="https://images.unsplash.com/photo-1592833159155-c62df1b65634?auto=format&fit=crop&w=400&q=80" alt="Cable eléctrico enrollado"> <div><h3>Cables dañados</h3><p>Reemplaza cables rotos o aplastados. No los repares con cinta como solución permanente.</p></div></article>
+				<article class="risk"><img src="https://images.unsplash.com/photo-1605727216801-e27ce1d0cc28?auto=format&fit=crop&w=400&q=80" alt="Tormenta con relámpagos en el cielo"> <div><h3>Tormentas</h3><p>Durante una tormenta, desconecta equipos sensibles y evita tocar estructuras metálicas o cables exteriores.</p></div></article>
+			</div>
+			<div class="tip"><strong>Consejo para familias:</strong> haz una revisión mensual de enchufes, extensiones, regletas y electrodomésticos. Mantén los cables ordenados para evitar tropiezos y enseña estas reglas a los niños.</div>
+		</section>
+		<section class="section" id="emergencia">
+			<div class="alert"><strong>!</strong><div><b>Si ocurre un accidente:</b> no toques a la persona si sigue en contacto con la corriente. Corta la energía desde el interruptor general solo si puedes hacerlo sin riesgo, aléjate de cables caídos y llama inmediatamente a los servicios de emergencia de tu localidad. No intentes reparar la instalación.</div></div>
+		</section>
+		<section class="section" id="lista">
+			<div class="section-heading"><h2>Lista de revisión</h2><p>Marca las acciones que ya realizaste. Repite esta revisión cada mes y comparte el resultado con tu familia, junta vecinal o autoridad del distrito.</p></div>
+			<div class="checklist">
+				<div class="checklist-group">En casa</div>
+				<label><input type="checkbox"> Revisé cables y enchufes visibles.</label>
+				<label><input type="checkbox"> Mantengo el agua lejos de aparatos eléctricos.</label>
+				<label><input type="checkbox"> No sobrecargo tomacorrientes ni extensiones.</label>
+				<label><input type="checkbox"> Desconecto aparatos antes de limpiarlos.</label>
+				<div class="checklist-group">En la comunidad</div>
+				<label><input type="checkbox"> Sé dónde está el interruptor general.</label>
+				<label><input type="checkbox"> Mi familia conoce qué hacer ante un cable caído.</label>
+				<label><input type="checkbox"> Mantengo despejada la zona de tableros eléctricos.</label>
+				<label><input type="checkbox"> Reporté instalaciones públicas peligrosas.</label>
+				<div class="checklist-group">En el distrito</div>
+				<label><input type="checkbox"> Respeto las distancias de seguridad en obras.</label>
+				<label><input type="checkbox"> No realizo reparaciones sin capacitación.</label>
+				<label><input type="checkbox"> Conozco los servicios de emergencia de mi localidad.</label>
+				<label><input type="checkbox"> Participé o difundí una campaña de prevención.</label>
+			</div>
+			<div class="progress" aria-label="Progreso de la lista de revisión"><div id="progress-bar"></div></div>
+			<p id="progress-text">0 de 12 acciones completadas</p>
+			<form class="review-form" id="review-form">
+				<h3>Enviar reporte de revisión</h3>
+				<div class="form-fields">
+					<label>Tu nombre<input id="name" name="name" type="text" required></label>
+					<label>Zona o distrito<input id="district" name="district" type="text" required></label>
+					<label>Correo de destino<input id="email" name="email" type="email" placeholder="destinatario@ejemplo.com" required></label>
+					<label>Tipo de revisión<select id="review-type" name="review-type"><option>Hogar</option><option>Comunidad</option><option>Distrito</option></select></label>
+				</div>
+				<label>Observaciones<textarea id="notes" name="notes" placeholder="Describe riesgos pendientes o acciones necesarias."></textarea></label>
+				<button class="button" type="submit">Preparar envío por correo</button>
+				<p class="form-note">Se abrirá tu aplicación de correo con el reporte listo. Este archivo HTML no envía correos por sí solo.</p>
+			</form>
+		</section>
+	</main>
+	<footer><p><strong>Conexión Segura</strong></p><p>La información es preventiva. Para reparaciones, contacta a un electricista autorizado.</p></footer>
+	<script>
+		const checks = document.querySelectorAll('.checklist input');
+		const progressBar = document.getElementById('progress-bar');
+		const progressText = document.getElementById('progress-text');
+		checks.forEach((check) => check.addEventListener('change', () => {
+			const completed = document.querySelectorAll('.checklist input:checked').length;
+			progressBar.style.width = `${(completed / checks.length) * 100}%`;
+			progressText.textContent = `${completed} de ${checks.length} acciones completadas`;
+		}));
+		document.getElementById('review-form').addEventListener('submit', (event) => {
+			event.preventDefault();
+			const completed = document.querySelectorAll('.checklist input:checked').length;
+			const recipient = document.getElementById('email').value;
+			const subject = `Reporte de seguridad eléctrica - ${document.getElementById('district').value}`;
+			const body = [`Nombre: ${document.getElementById('name').value}`, `Zona o distrito: ${document.getElementById('district').value}`, `Tipo de revisión: ${document.getElementById('review-type').value}`, `Acciones completadas: ${completed} de ${checks.length}`, `Observaciones: ${document.getElementById('notes').value || 'Ninguna'}`].join('\n');
+			window.location.href = `mailto:${recipient}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+		});
+	</script>
+</body>
+</html>
